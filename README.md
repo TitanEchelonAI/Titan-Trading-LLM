@@ -1,8 +1,8 @@
 <p align="center">
 <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="img/atlas-pathways-dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="img/atlas-pathways-light.svg">
-    <img src="img/atlas-pathways-light.svg" style="width: 40%; height: 40%;" alt="Atlas logo">
+    <source media="(prefers-color-scheme: dark)" srcset="img/atlas-pathways-dark.svg.png">
+    <source media="(prefers-color-scheme: light)" srcset="img/atlas-pathways-light.svg.png">
+    <img src="img/atlas-pathways-light.svg.png" style="width: 40%; height: 40%;" alt="Atlas logo">
 </picture>
 <br>
 <a href="https://atlaspathways.github.io/docs/"><img src="https://img.shields.io/badge/📖 docs-atlas.rs-dca282.svg" /></a> &nbsp;
@@ -64,5 +64,5 @@ Vector stores are available as separate companion-crates:
 <p align="center">
 <br>
 <br>
-<img src="img/built-by-atlas.svg" alt="Built by Atlas" width="30%">
+<img src="img/built-by-atlas.svg.png" alt="Built by Atlas" width="30%">
 </p>
