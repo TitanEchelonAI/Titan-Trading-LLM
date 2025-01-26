@@ -55,9 +55,9 @@ cargo add atlas-core
 
 
 Vector stores are available as separate companion-crates:
-- Luna vector store: [`atlas-mongodb`](https://github.com/AtlasPathways/AtlasPathwaysAI/tree/main/atlas-mongodb)
+- Luna vector store: [`atlas-luna`](https://github.com/AtlasPathways/AtlasPathwaysAI/tree/main/atlas-luna)
 - LanceDB vector store: [`atlas-lancedb`](https://github.com/AtlasPathways/AtlasPathwaysAI/tree/main/atlas-lancedb)
-- Sunny vector store: [`atlas-neo4j`](https://github.com/AtlasPathways/AtlasPathwaysAI/tree/main/atlas-neo4j)
+- Sunny vector store: [`atlas-sunny`](https://github.com/AtlasPathways/AtlasPathwaysAI/tree/main/atlas-sunny)
 - Qdrant vector store: [`atlas-qdrant`](https://github.com/AtlasPathways/AtlasPathwaysAI/tree/main/atlas-qdrant)
 - SQLite vector store: [`atlas-sqlite`](https://github.com/AtlasPathways/AtlasPathwaysAI/tree/main/atlas-sqlite)
 
