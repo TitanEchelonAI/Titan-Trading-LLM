@@ -6,9 +6,9 @@
 </picture>
 <br>
 <a href="https://atlaspathways.github.io/docs/"><img src="https://img.shields.io/badge/📖 docs-atlas.rs-dca282.svg" /></a> &nbsp;
-<a href="UPDATE"><img src="https://img.shields.io/crates/v/atlas-core.svg?color=dca282" /></a>
+<a href="https://crates.io/crates/atlaspathwaysai"><img src="https://img.shields.io/crates/v/atlaspathwaysai.svg?color=dca282" /></a>
 &nbsp;
-<a href="UPDATE"><img src="https://img.shields.io/crates/d/atlas-core.svg?color=dca282" /></a>
+<a href="https://crates.io/crates/atlaspathwaysai"><img src="https://img.shields.io/crates/d/atlaspathwaysai.svg?color=dca282" /></a>
 </br>
 <a href="https://discord.com/invite/gGqttYU59M"><img src="https://img.shields.io/discord/511303648119226382?color=%236d82cc&label=Discord&logo=discord&logoColor=white" /></a>
 &nbsp;
