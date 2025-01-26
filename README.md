@@ -25,7 +25,7 @@
 ✨ If you would like to help spread the word about Atlas, please consider starring the repo!
 
 > [!WARNING]
-> Here be dragons! As we plan to ship a torrent of features in the following months, future updates **will** contain **breaking changes**. With Atlas evolving, we'll annotate changes and highlight migration paths as we encounter them.
+> This is a LARGE project with the Competition all models will be built on v1.1, future updates **will** contain **breaking changes**. With Atlas evolving, we'll annotate changes and highlight migration paths as we encounter them.
 
 
 ## [What is Atlas?](https://atlaspathways.github.io/docs/docs/1_why_atlaspathwaysai)
