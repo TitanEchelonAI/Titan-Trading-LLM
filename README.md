@@ -6,7 +6,6 @@
 </picture>
 <br>
 <a href="https://atlaspathways.github.io/docs/"><img src="https://img.shields.io/badge/📖 docs-atlas.rs-dca282.svg" /></a> &nbsp;
-<a href="https://docs.rs/atlas-core/latest/atlas/"><img src="https://img.shields.io/badge/docs-API Reference-dca282.svg" /></a> &nbsp;
 <a href="https://crates.io/crates/atlas-core"><img src="https://img.shields.io/crates/v/atlas-core.svg?color=dca282" /></a>
 &nbsp;
 <a href="https://crates.io/crates/atlas-core"><img src="https://img.shields.io/crates/d/atlas-core.svg?color=dca282" /></a>
