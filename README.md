@@ -5,20 +5,18 @@
     <img src="img/atlas-pathways-light.svg" style="width: 40%; height: 40%;" alt="Atlas logo">
 </picture>
 <br>
-<a href="https://docs.atlas.rs"><img src="https://img.shields.io/badge/📖 docs-atlas.rs-dca282.svg" /></a> &nbsp;
-<a href="https://docs.rs/atlas-core/latest/atlas/"><img src="https://img.shields.io/badge/docs-API Reference-dca282.svg" /></a> &nbsp;
+<a href="https://atlaspathways.github.io/docs/"><img src="https://img.shields.io/badge/📖 docs-atlas.rs-dca282.svg" /></a> &nbsp;
 <a href="https://crates.io/crates/atlas-core"><img src="https://img.shields.io/crates/v/atlas-core.svg?color=dca282" /></a>
 &nbsp;
 <a href="https://crates.io/crates/atlas-core"><img src="https://img.shields.io/crates/d/atlas-core.svg?color=dca282" /></a>
 </br>
-<a href="https://discord.gg/atlas"><img src="https://img.shields.io/discord/511303648119226382?color=%236d82cc&label=Discord&logo=discord&logoColor=white" /></a>
+<a href="https://discord.com/invite/gGqttYU59M"><img src="https://img.shields.io/discord/511303648119226382?color=%236d82cc&label=Discord&logo=discord&logoColor=white" /></a>
 &nbsp;
 <a href="https://github.com/AtlasPathways/AtlasPathwaysAI"><img src="https://img.shields.io/github/stars/AtlasPathways/AtlasPathwaysAI?style=social" alt="stars - Atlas" /></a>
 <br>
 <a href=""><img src="https://img.shields.io/badge/built_with-Rust-dca282.svg?logo=rust" /></a>
 &nbsp;
 <a href="https://x.com/AtlasPathways"><img src="https://img.shields.io/twitter/follow/AtlasPathways"></a> &nbsp
-
 <br>
 </p>
 &nbsp;
@@ -32,7 +30,7 @@
 ## What is Atlas?
 Atlas is a Rust library for building scalable, modular, and ergonomic **LLM-powered** applications.
 
-More information about this crate can be found in the [official](https://docs.atlas.rs) & [crate](https://docs.rs/atlas-core/latest/atlas/) (API Reference) documentations.
+More information about this crate can be found in the [official](https://docs.atlas.rs) & [crate](https://docs.rs/atlas-core/latest/atlas/) documentations.
 
 Help us improve Atlas by contributing to our [Feedback form](https://bit.ly/Atlas-Feedback-Form).
 
@@ -49,7 +47,6 @@ Help us improve Atlas by contributing to our [Feedback form](https://bit.ly/Atla
 - Full support for LLM completion and embedding workflows
 - Simple but powerful common abstractions over LLM providers (e.g. OpenAI, Cohere) and vector stores (e.g. MongoDB, SQlite, in-memory)
 - Integrate LLMs in your app with minimal boilerplate
-
 
 
 ## Get Started
