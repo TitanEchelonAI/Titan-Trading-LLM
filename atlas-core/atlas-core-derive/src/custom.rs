@@ -5,8 +5,14 @@ use crate::EMBED;
 
 const EMBED_WITH: &str = "embed_with";
 
-/// Finds and returns fields with #[embed(embed_with = "...")] attribute tags only.
-/// Also returns the "..." part of the tag (ie. the custom function).
+/// Finds and returns fields with `#[embed(embed_with = "...")]` attribute tags only.
+/// Additionally, it extracts and returns the "..." portion of the attribute tag (i.e., the custom function).
+/// 
+/// # Parameters:
+/// - `data_struct`: A reference to the `DataStruct` to be parsed.
+/// 
+/// # Returns:
+/// A `Result` containing a vector of tuples where each tuple consists of a field reference and its associated `ExprPath` (custom function), or an error.
 pub(crate) fn custom_embed_fields(
     data_struct: &syn::DataStruct,
 ) -> syn::Result<Vec<(&syn::Field, syn::ExprPath)>> {
@@ -30,12 +36,15 @@ pub(crate) fn custom_embed_fields(
         .collect::<Result<Vec<_>, _>>()
 }
 
+/// A trait that provides methods to parse and handle custom attributes on struct fields.
 trait CustomAttributeParser {
-    // Determine if field is tagged with an #[embed(embed_with = "...")] attribute.
+    /// Determines whether the attribute is a custom `#[embed(embed_with = "...")]` tag.
     fn is_custom(&self) -> syn::Result<bool>;
 
-    // Get the "..." part of the #[embed(embed_with = "...")] attribute.
-    // Ex: If attribute is tagged with #[embed(embed_with = "my_embed")], returns "my_embed".
+    /// Extracts and returns the "..." portion of the `#[embed(embed_with = "...")]` tag.
+    /// 
+    /// # Returns:
+    /// A `Result` containing the parsed `ExprPath` for the custom embedding function, or an error.
     fn expand_tag(&self) -> syn::Result<syn::ExprPath>;
 }
 
@@ -51,13 +60,13 @@ impl CustomAttributeParser for syn::Attribute {
             _ => return Ok(false),
         };
 
-        // Check the first attribute tag (the first "embed")
+        // Verify that the first attribute path matches `EMBED`
         if !self.path().is_ident(EMBED) {
             return Ok(false);
         }
 
         self.parse_nested_meta(|meta| {
-            // Parse the meta attribute as an expression. Need this to compile.
+            // Parse the attribute meta as an expression.
             meta.value()?.parse::<syn::Expr>()?;
 
             if meta.path.is_ident(EMBED_WITH) {
@@ -76,7 +85,7 @@ impl CustomAttributeParser for syn::Attribute {
 
     fn expand_tag(&self) -> syn::Result<syn::ExprPath> {
         fn function_path(meta: &ParseNestedMeta<'_>) -> syn::Result<ExprPath> {
-            // #[embed(embed_with = "...")]
+            // Extract the value from `#[embed(embed_with = "...")]`
             let expr = meta.value()?.parse::<syn::Expr>().unwrap();
             let mut value = &expr;
             while let syn::Expr::Group(e) = value {
