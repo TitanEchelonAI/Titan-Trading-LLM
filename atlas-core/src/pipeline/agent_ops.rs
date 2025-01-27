@@ -214,8 +214,8 @@ pub mod tests {
 
     #[tokio::test]
     async fn test_prompt() {
-        let model = MockModel;
-        let prompt = prompt::<MockModel, String>(model);
+        let model = MockModelAtlas;
+        let prompt = prompt::<MockModeAtlas, String>(model);
 
         let result = prompt.call("hello".to_string()).await.unwrap();
         assert_eq!(result, "Mock response: hello");
