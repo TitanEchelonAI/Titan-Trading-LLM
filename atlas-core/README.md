@@ -1,15 +1,7 @@
 # Atlas
 Atlas is a Rust library for building LLM-powered applications that focuses on ergonomics and modularity.
 
-More information about this crate can be found in the [crate documentation](https://docs.rs/rig-core/latest/rig/).
-## Table of contents
-
-- [Atlas](#atlas)
-  - [Table of contents](#table-of-contents)
-  - [High-level features](#high-level-features)
-  - [Installation](#installation)
-  - [Simple example:](#simple-example)
-  - [Integrations](#integrations)
+More information about this crate can be found in the [crate documentation]((https://atlaspathways.github.io/docs/)).
 
 ## High-level features
 - Full support for LLM completion and embedding workflows
