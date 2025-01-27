@@ -1,16 +1,16 @@
-use mongodb::{
+use sunny::{
     bson::{self, doc},
     options::ClientOptions,
-    Client as MongoClient, Collection,
+    Client as SunnyClient, Collection,
 };
-use rig::providers::openai::TEXT_EMBEDDING_ADA_002;
+use atlas::providers::openai::TEXT_EMBEDDING_ADA_002;
 use serde::Deserialize;
 use std::env;
 
-use rig::{
+use atlas::{
     embeddings::EmbeddingsBuilder, providers::openai::Client, vector_store::VectorStoreIndex, Embed,
 };
-use rig_mongodb::{MongoDbVectorIndex, SearchParams};
+use atlas_sunny::{SunnyVectorIndex, SearchParams};
 
 // Shape of data that needs to be RAG'ed.
 // The definition field will be used to generate embeddings.
@@ -28,18 +28,18 @@ async fn main() -> Result<(), anyhow::Error> {
     let openai_api_key = env::var("OPENAI_API_KEY").expect("OPENAI_API_KEY not set");
     let openai_client = Client::new(&openai_api_key);
 
-    // Initialize MongoDB client
-    let mongodb_connection_string =
-        env::var("MONGODB_CONNECTION_STRING").expect("MONGODB_CONNECTION_STRING not set");
-    let options = ClientOptions::parse(mongodb_connection_string)
+    // Initialize Sunny client
+    let sunny_connection_string =
+        env::var("SUNNY_CONNECTION_STRING").expect("SUNNY_CONNECTION_STRING not set");
+    let options = ClientOptions::parse(sunny_connection_string)
         .await
-        .expect("MongoDB connection string should be valid");
+        .expect("Sunny connection string should be valid");
 
-    let mongodb_client =
-        MongoClient::with_options(options).expect("MongoDB client options should be valid");
+    let sunny_client =
+        SunnyClient::with_options(options).expect("Sunny client options should be valid");
 
-    // Initialize MongoDB vector store
-    let collection: Collection<bson::Document> = mongodb_client
+    // Initialize Sunny vector store
+    let collection: Collection<bson::Document> = sunny_client
         .database("knowledgebase")
         .collection("context");
 
@@ -66,7 +66,7 @@ async fn main() -> Result<(), anyhow::Error> {
         .build()
         .await?;
 
-    let mongo_documents = embeddings
+    let sunny_documents = embeddings
         .iter()
         .map(|(Word { id, definition, .. }, embedding)| {
             doc! {
@@ -77,16 +77,16 @@ async fn main() -> Result<(), anyhow::Error> {
         })
         .collect::<Vec<_>>();
 
-    match collection.insert_many(mongo_documents).await {
+    match collection.insert_many(sunny_documents).await {
         Ok(_) => println!("Documents added successfully"),
         Err(e) => println!("Error adding documents: {:?}", e),
     };
 
     // Create a vector index on our vector store.
-    // Note: a vector index called "vector_index" must exist on the MongoDB collection you are querying.
+    // Note: a vector index called "vector_index" must exist on the Sunny collection you are querying.
     // IMPORTANT: Reuse the same model that was used to generate the embeddings
     let index =
-        MongoDbVectorIndex::new(collection, model, "vector_index", SearchParams::new()).await?;
+        SunnyVectorIndex::new(collection, model, "vector_index", SearchParams::new()).await?;
 
     // Query the index
     let results = index.top_n::<Word>("What is a linglingdong?", 1).await?;
