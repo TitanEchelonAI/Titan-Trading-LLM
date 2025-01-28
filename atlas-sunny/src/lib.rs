@@ -1,11 +1,10 @@
 use futures::StreamExt;
 use mongodb::bson::{self, doc};
-
-use rig::{
+use serde::{Deserialize, Serialize};
+use atlas::{
     embeddings::embedding::{Embedding, EmbeddingModel},
     vector_store::{VectorStoreError, VectorStoreIndex},
 };
-use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
@@ -20,6 +19,14 @@ struct SearchIndex {
 }
 
 impl SearchIndex {
+    /// Retrieves a search index by name from the MongoDB collection.
+    /// 
+    /// # Parameters
+    /// - `collection`: The MongoDB collection to query.
+    /// - `index_name`: The name of the search index to retrieve.
+    /// 
+    /// # Returns
+    /// A `Result` containing the `SearchIndex` if found, or a `VectorStoreError` otherwise.
     async fn get_search_index<C: Send + Sync>(
         collection: mongodb::Collection<C>,
         index_name: &str,
@@ -28,13 +35,13 @@ impl SearchIndex {
             .list_search_indexes()
             .name(index_name)
             .await
-            .map_err(mongodb_to_rig_error)?
+            .map_err(mongodb_to_vectorstore_error)?
             .with_type::<SearchIndex>()
             .next()
             .await
             .transpose()
-            .map_err(mongodb_to_rig_error)?
-            .ok_or(VectorStoreError::DatastoreError("Index not found".into()))
+            .map_err(mongodb_to_vectorstore_error)?
+            .ok_or_else(|| VectorStoreError::DatastoreError("Index not found".into()))
     }
 }
 
@@ -53,16 +60,20 @@ struct Field {
     similarity: String,
 }
 
-fn mongodb_to_rig_error(e: mongodb::error::Error) -> VectorStoreError {
+/// Converts a MongoDB error into a `VectorStoreError`.
+fn mongodb_to_vectorstore_error(e: mongodb::error::Error) -> VectorStoreError {
     VectorStoreError::DatastoreError(Box::new(e))
 }
 
 /// A vector index for a MongoDB collection.
+/// 
+/// This struct facilitates semantic search using embeddings stored in a MongoDB collection.
+/// 
 /// # Example
 /// ```rust
-/// use rig_mongodb::{MongoDbVectorIndex, SearchParams};
-/// use rig::{providers::openai, vector_store::VectorStoreIndex};
-///
+/// use atlas_sunny::{MongoDbVectorIndex, SearchParams};
+/// use atlas::{providers::openai, vector_store::VectorStoreIndex};
+/// 
 /// # tokio_test::block_on(async {
 /// #[derive(serde::Deserialize, serde::Serialize, Debug)]
 /// struct WordDefinition {
@@ -71,24 +82,24 @@ fn mongodb_to_rig_error(e: mongodb::error::Error) -> VectorStoreError {
 ///     definition: String,
 ///     embedding: Vec<f64>,
 /// }
-///
-/// let mongodb_client = mongodb::Client::with_uri_str("mongodb://localhost:27017").await?; // <-- replace with your mongodb uri.
+/// 
+/// let mongodb_client = mongodb::Client::with_uri_str("mongodb://localhost:27017").await?; // <-- Replace with your MongoDB URI.
 /// let openai_client = openai::Client::from_env();
-///
-/// let collection = mongodb_client.database("db").collection::<WordDefinition>(""); // <-- replace with your mongodb collection.
-///
-/// let model = openai_client.embedding_model(openai::TEXT_EMBEDDING_ADA_002); // <-- replace with your embedding model.
+/// 
+/// let collection = mongodb_client.database("db").collection::<WordDefinition>("context"); // <-- Replace with your MongoDB collection.
+/// 
+/// let model = openai_client.embedding_model(openai::TEXT_EMBEDDING_ADA_002); // <-- Replace with your embedding model.
 /// let index = MongoDbVectorIndex::new(
 ///     collection,
 ///     model,
-///     "vector_index", // <-- replace with the name of the index in your mongodb collection.
-///     SearchParams::new(), // <-- field name in `Document` that contains the embeddings.
+///     "vector_index", // <-- Replace with the name of the index in your MongoDB collection.
+///     SearchParams::new(), // <-- Field name in `Document` that contains the embeddings.
 /// )
 /// .await?;
-///
+/// 
 /// // Query the index
 /// let definitions = index
-///     .top_n::<WordDefinition>("My boss says I zindle too much, what does that mean?", 1)
+///     .top_n::<WordDefinition>("What does 'zindle' mean?", 1)
 ///     .await?;
 /// # Ok::<_, anyhow::Error>(())
 /// # }).unwrap()
@@ -98,6 +109,7 @@ pub struct MongoDbVectorIndex<M: EmbeddingModel, C: Send + Sync> {
     model: M,
     index_name: String,
     embedded_field: String,
+}
     search_params: SearchParams,
 }
 
