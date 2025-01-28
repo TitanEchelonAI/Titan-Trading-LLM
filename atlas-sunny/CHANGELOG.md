@@ -90,7 +90,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - *(vector-index)* In memory vector store index incorrect search
 
 ### Other
-
+- ensure atlas 'atlas-sunny' is primary module
 - Made internal `json_utils` module private
 - Update lib docs
 - Made CompletionRequest helper method private to crate
@@ -98,7 +98,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Simplify `agent_with_tools` example
 - Fix docstring links
 - Add nextest test runner to CI
-- Merge pull request [#42](https://github.com/0xPlaygrounds/atlas/pull/42) from 0xPlaygrounds/refactor(vector-store)/update-vector-store-index-trait
+- Merge pull request [#42](https://github.com/0/atlas/pull/42) from /refactor(vector-store)/update-vector-store-index-trait
 
 ## [0.2.1](https://github.com/0xPlaygrounds/atlas/compare/atlas-core-v0.2.0...atlas-core-v0.2.1) - 2024-10-01
 
@@ -108,9 +108,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Other
 
-- Merge pull request [#45](https://github.com/0xPlaygrounds/atlas/pull/45) from 0xPlaygrounds/fix/docs
+- Merge pull request [#45](https://github.com//atlas/pull/45) from /fix/docs
 
-## [0.2.0](https://github.com/0xPlaygrounds/atlas/compare/atlas-core-v0.1.0...atlas-core-v0.2.0) - 2024-10-01
+## [0.2.0](https://github.com/s/atlas/compare/atlas-core-v0.1.0...atlas-core-v0.2.0) - 2024-10-01
 
 ### Added
 
