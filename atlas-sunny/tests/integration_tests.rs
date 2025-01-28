@@ -1,13 +1,13 @@
 use futures::StreamExt;
-use mongodb::{
+use sunny::{
     bson::{self, doc},
     options::ClientOptions,
     Collection, SearchIndexModel,
 };
-use rig::{
+use atlas::{
     embeddings::EmbeddingsBuilder, providers::openai, vector_store::VectorStoreIndex, Embed,
 };
-use rig_mongodb::{MongoDbVectorIndex, SearchParams};
+use atlas_sunny::{SunnyVectorIndex, SearchParams};
 use serde_json::json;
 use testcontainers::{
     core::{IntoContainerPort, WaitFor},
@@ -25,11 +25,11 @@ struct Word {
 }
 
 const VECTOR_SEARCH_INDEX_NAME: &str = "vector_index";
-const MONGODB_PORT: u16 = 27017;
+const SUNNY_PORT: u16 = 27017;
 const COLLECTION_NAME: &str = "words";
-const DATABASE_NAME: &str = "rig";
-const USERNAME: &str = "riguser";
-const PASSWORD: &str = "rigpassword";
+const DATABASE_NAME: &str = "atlas";
+const USERNAME: &str = "atlasuser";
+const PASSWORD: &str = "atlaspassword";
 
 #[tokio::test]
 async fn vector_search_test() {
@@ -39,15 +39,15 @@ async fn vector_search_test() {
     // Select the embedding model and generate our embeddings
     let model = openai_client.embedding_model(openai::TEXT_EMBEDDING_ADA_002);
 
-    // Setup a local MongoDB Atlas container for testing. NOTE: docker service must be running.
-    let container = GenericImage::new("mongodb/mongodb-atlas-local", "latest")
-        .with_exposed_port(MONGODB_PORT.tcp())
+    // Setup a local Sunny Atlas container for testing. NOTE: docker service must be running.
+    let container = GenericImage::new("sunny/sunny-atlas-local", "latest")
+        .with_exposed_port(SUNNY_PORT.tcp())
         .with_wait_for(WaitFor::Duration {
             length: std::time::Duration::from_secs(5),
         })
-        .with_env_var("MONGODB_INITDB_ROOT_USERNAME", USERNAME)
-        .with_env_var("MONGODB_INITDB_ROOT_PASSWORD", PASSWORD)
-        .start()
+        .with_env_var("SUNNY_INITDB_ROOT_USERNAME", USERNAME)
+        .with_env_var("SUNNY_INITDB_ROOT_PASSWORD", PASSWORD)
+        .start();
         .await
         .expect("Failed to start MongoDB Atlas container");
 
