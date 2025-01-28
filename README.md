@@ -64,5 +64,4 @@ Vector stores are available as separate companion-crates:
 <p align="center">
 <br>
 <br>
-<img src="img/built-by-atlas.svg.png" alt="Built by Atlas" width="30%">
 </p>
