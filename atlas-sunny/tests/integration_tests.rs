@@ -57,7 +57,14 @@ async fn vector_search_test() {
     let collection = bootstrap_collection(host, port).await;
 
     let embeddings = create_embeddings(model.clone()).await;
+use tokio::time::{sleep, Duration};
 
+#[derive(Embed, Clone, serde::Deserialize, serde::Serialize, Debug, PartialEq)]
+struct Word {
+    #[serde(rename = "_id")]
+    id: String,
+    #[embed]
+    definition: String,
     collection.insert_many(embeddings).await.unwrap();
 
     // Wait for the new documents to be indexed
