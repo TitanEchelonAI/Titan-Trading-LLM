@@ -1,8 +1,8 @@
 <p align="center">
 <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="img/atlas-pathways-dark.svg.png">
-    <source media="(prefers-color-scheme: light)" srcset="img/atlas-pathways-light.png">
-    <img src="img/atlas-pathways-light.png" style="width: 5%; height: 5%;" alt="Atlas logo">
+    <source media="(prefers-color-scheme: dark)" srcset="img/titanlogo.png">
+    <source media="(prefers-color-scheme: light)" srcset="titanlogo.png">
+    <img src="img/titanlogo.png" style="width: 5%; height: 5%;" alt="Titan logo">
 </picture>
 <br>
 <a href="[https://atlaspathways.github.io/docs](https://docs.rs/crate/titanai/latest)/"><img src="https://img.shields.io/badge/📖 docs-atlas.rs-dca282.svg" /></a> &nbsp;
