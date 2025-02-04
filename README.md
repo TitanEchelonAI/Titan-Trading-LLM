@@ -5,7 +5,7 @@
     <img src="img/atlas-pathways-light.png" style="width: 5%; height: 5%;" alt="Atlas logo">
 </picture>
 <br>
-<a href="https://atlaspathways.github.io/docs/"><img src="https://img.shields.io/badge/📖 docs-atlas.rs-dca282.svg" /></a> &nbsp;
+<a href="[https://atlaspathways.github.io/docs](https://docs.rs/crate/titanai/latest)/"><img src="https://img.shields.io/badge/📖 docs-atlas.rs-dca282.svg" /></a> &nbsp;
 <a href="https://crates.io/crates/atlaspathwaysai"><img src="https://img.shields.io/crates/v/atlaspathwaysai.svg?color=dca282" /></a>
 &nbsp;
 <a href="https://crates.io/crates/atlaspathwaysai"><img src="https://img.shields.io/crates/d/atlaspathwaysai.svg?color=dca282" /></a>
