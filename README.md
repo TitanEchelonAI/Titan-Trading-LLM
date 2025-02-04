@@ -10,16 +10,15 @@
     <a href="https://x.com/AtlasPathways"><img src="https://img.shields.io/twitter/follow/AtlasPathways"></a>
 </p>
 
-✨ If you would like to help spread the word about Atlas, please consider starring the repo!
+✨ If you would like to help spread the word about Titan, please consider starring the repo!
 
-> [!WARNING]
 > This is a LARGE project with the Competition all models will be built on v1.1, future updates **will** contain **breaking changes**. With Atlas evolving, we'll annotate changes and highlight migration paths as we encounter them.
 
 
-## [What is Atlas?](https://atlaspathways.github.io/docs/docs/1_why_atlaspathwaysai)
+## [What is Titan?](https://atlaspathways.github.io/docs/docs/1_why_atlaspathwaysai)
 Atlas is a Rust library for building scalable, modular, and ergonomic **LLM-powered** applications.
 
-More information about this crate can be found in the [official](https://atlaspathways.github.io/docs/) documentations.
+More information about this crate can be found in the [official](https://docs.rs/crate/titanai/) documentations.
 
 Help us improve Atlas by contributing to our Feedback form.
 
@@ -31,23 +30,14 @@ Help us improve Atlas by contributing to our Feedback form.
 
 ## [Get Started](https://atlaspathways.github.io/docs/guides/0_text_extraction_classification)
 ```bash
-cargo add atlas-core
+cargo add titan-core
 ```
 
-## [Integrations](https://atlaspathways.github.io/docs/docs/5_integrations)
+## [Integrations](https://docs.rs/crate/titanai/)
 
 | Model Providers |                                                                                                                                                                                                                                                                                                               Vector Stores                                                                                                                                                                                                                                                                                                               |
 |:--------------:|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
 | <br><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ChatGPT_logo.svg/1024px-ChatGPT_logo.svg.png" alt="ChatGPT logo" width="50em"> <picture><source media="(prefers-color-scheme: dark)" srcset="https://www.fahimai.com/wp-content/uploads/2024/06/Untitled-design-7.png"><img src="https://cdn.sanity.io/images/rjtqmwfu/production/0adbf394439f4cd0ab8b5b3b6fe1da10c8099024-201x200.svg" alt="Cohere logo" width="50em"> <img src="https://logospng.org/download/google-gemini/google-gemini-1024.png" style="background-color: white; border-radius: 10px; padding: 5px 5px ; width: 3em;" alt="Gemini logo"> <br> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/XAI-Logo.svg/512px-XAI-Logo.svg.png?20240912222841" style="background-color: white; border-radius: 10px; padding: 5px 5px ; width: 3em;" alt="xAI logo"> <img src="https://github.com/user-attachments/assets/4763ae96-ddc9-4f69-ab38-23592e6c4ead" style="background-color: white; border-radius: 10px; padding: 5px 0px ; width: 4em;" alt="perplexity logo">| <br><img src="https://cdn.prod.website-files.com/6640cd28f51f13175e577c05/664e00a400e23f104ed2b6cd_3b3dd6e8-8a73-5879-84a9-a42d5b910c74.svg" alt="Luna DB logo" width="50em"> <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Neo4j-logo_color.png" alt="Sunny logo" style="background-color: white; border-radius: 1em; padding: 1em 1em ; width: 4em;"><br><br><img src="https://cdn-images-1.medium.com/max/844/1*Jp6VwF0OcdeyRyW0Ln0RMQ@2x.png" width="100em" alt="Lance DB logo"> <br> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/SQLite370.svg/440px-SQLite370.svg.png" style="width: 6em"> |
-
-
-Vector stores are available as separate companion-crates:
-- Luna vector store: [`atlas-luna`](https://github.com/AtlasPathways/AtlasPathwaysAI/tree/main/atlas-luna)
-- LanceDB vector store: [`atlas-lancedb`](https://github.com/AtlasPathways/AtlasPathwaysAI/tree/main/atlas-lancedb)
-- Sunny vector store: [`atlas-sunny`](https://github.com/AtlasPathways/AtlasPathwaysAI/tree/main/atlas-sunny)
-- Qdrant vector store: [`atlas-qdrant`](https://github.com/AtlasPathways/AtlasPathwaysAI/tree/main/atlas-qdrant)
-- SQLite vector store: [`atlas-sqlite`](https://github.com/AtlasPathways/AtlasPathwaysAI/tree/main/atlas-sqlite)
-
 
 <p align="center">
 <br>
