@@ -12,7 +12,7 @@ pub enum FileLoaderError {
     IoError(#[from] std::io::Error),
 
     #[error("Pattern error: {0}")]
-    PatternError(#[from] glob::PatternError),
+    PatternError(#[from] glob::PatternError),error pattern fix?
 
     #[error("Glob error: {0}")]
     GlobError(#[from] glob::GlobError),
