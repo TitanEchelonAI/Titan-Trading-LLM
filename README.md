@@ -4,7 +4,7 @@
 
 <p align="center">
     <a href="https://docs.rs/crate/titanai/latest/"><img src="https://img.shields.io/badge/📖 docs-atlas.rs-dca282.svg" /></a>&nbsp;
-    <a href="https://discord.com/invite/gGqttYU59M"><img src="https://img.shields.io/discord/511303648119226382?color=%236d82cc&label=Discord&logo=discord&logoColor=white" /></a>&nbsp;
+    <a href="https://discord.gg/YJCWkHq6"><img src="https://img.shields.io/discord/511303648119226382?color=%236d82cc&label=Discord&logo=discord&logoColor=white" /></a>&nbsp;
     <a href="https://github.com/AtlasPathways/AtlasPathwaysAI"><img src="https://img.shields.io/github/stars/AtlasPathways/AtlasPathwaysAI?style=social" alt="stars - Atlas" /></a>&nbsp;
     <a href=""><img src="https://img.shields.io/badge/built_with-Rust-dca282.svg?logo=rust" /></a>&nbsp;
     <a href="https://x.com/AtlasPathways"><img src="https://img.shields.io/twitter/follow/AtlasPathways"></a>
