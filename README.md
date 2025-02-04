@@ -12,15 +12,15 @@
 
 ✨ If you would like to help spread the word about Titan, please consider starring the repo!
 
-> This is a LARGE project with the Competition all models will be built on v1.1, future updates **will** contain **breaking changes**. With Atlas evolving, we'll annotate changes and highlight migration paths as we encounter them.
+> This is a LARGE project with the Competition all models will be built on v1.1, future updates **will** contain **breaking changes**. With Titan evolving, we'll annotate changes and highlight migration paths as we encounter them.
 
 
 ## [What is Titan?](https://atlaspathways.github.io/docs/docs/1_why_atlaspathwaysai)
-Atlas is a Rust library for building scalable, modular, and ergonomic **LLM-powered** applications.
+Titan is a Rust library for building scalable, modular, and ergonomic **LLM-powered** applications.
 
 More information about this crate can be found in the [official](https://docs.rs/crate/titanai/) documentations.
 
-Help us improve Atlas by contributing to our Feedback form.
+Help us improve Titan by contributing to our Feedback form.
 
 ## High-level features
 - Full support for LLM completion and embedding workflows
