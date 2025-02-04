@@ -1,5 +1,5 @@
 Just visit our offical documentation.
 
-<a href="https://atlaspathways.github.io/docs" target="_blank">atlaspathways.github.io/docs</a>
+<a href="https://docs.rs/crate/titanai/latest" target="_blank">https://docs.rs/crate/titanai/latest</a>
 
 Find the reasoning behind their eyes: one . two .. four ....
