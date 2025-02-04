@@ -1,9 +1,7 @@
 <p align="center">
-<picture>
-    <source media="(prefers-color-scheme: dark)" srcset="img/titanlogo.png">
-    <source media="(prefers-color-scheme: light)" srcset="titanlogo.png">
+<p align="center">
     <img src="img/titanlogo.png" style="width: 5%; height: 5%;" alt="Titan logo">
-</picture>
+</p>
 <br>
 <a href="[https://atlaspathways.github.io/docs](https://docs.rs/crate/titanai/latest)/"><img src="https://img.shields.io/badge/📖 docs-atlas.rs-dca282.svg" /></a> &nbsp;
 <a href="https://crates.io/crates/atlaspathwaysai"><img src="https://img.shields.io/crates/v/atlaspathwaysai.svg?color=dca282" /></a>
