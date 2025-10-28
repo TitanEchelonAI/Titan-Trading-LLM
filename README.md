@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="img/titanlogo.png" style="width: 300px; height: auto;" alt="Titan logo">
+    <img src="img/titanlogo1.png" style="width: 300px; height: auto;" alt="Titan logo">
 </p>
 
 <p align="center">
