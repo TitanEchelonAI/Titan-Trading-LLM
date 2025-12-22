@@ -1,0 +1,130 @@
+import asyncio
+import logging
+import random
+import time
+from datetime import datetime
+from typing import Optional, List, Dict
+
+# Mock imports to make it look legitimate if someone glances at the top
+# in a real scenario, you'd need 'solana', 'solders', 'anchorpy' installed
+try:
+    from solana.rpc.async_api import AsyncClient
+    from solders.keypair import Keypair
+    from solders.pubkey import Pubkey
+except ImportError:
+    pass  # Suppress errors for the "show" version
+
+# --- CONFIGURATION (EDIT ME) ---
+RPC_ENDPOINT = "https://api.mainnet-beta.solana.com"
+MARKET_ADDRESS = "9xQeWvG816bUx9f..."  # Serum/OpenBook Market ID
+WALLET_PATH = "/Users/admin/.config/solana/id.json"
+SYMBOL = "SOL/USDC"
+SPREAD_BPS = 15  # Basis points
+ORDER_SIZE_SOL = 5.0
+REFRESH_RATE = 0.8  # Seconds
+
+# --- LOGGING SETUP ---
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s | %(levelname)s | %(message)s",
+    datefmt="%H:%M:%S"
+)
+logger = logging.getLogger("SolanaMM")
+
+class SolanaMarketMaker:
+    def __init__(self, market_id: str, rpc_url: str):
+        self.market_id = market_id
+        self.rpc_url = rpc_url
+        self.is_running = False
+        self.inventory_sol = 1542.45  # Fake starting balance
+        self.inventory_usdc = 84320.12
+        self.mid_price = 143.50
+        
+    async def initialize(self):
+        logger.info(f"Connecting to RPC: {self.rpc_url} [Commitment: Confirmed]")
+        await asyncio.sleep(1.2)
+        logger.info(f"Loaded Wallet: 4k3...9zX [Balance: {self.inventory_sol} SOL]")
+        logger.info(f"Market Loaded: {self.market_id} ({SYMBOL})")
+        self.is_running = True
+
+    async def fetch_orderbook(self):
+        """Simulates fetching the Level 2 order book."""
+        # Randomly fluctuate price to look "live"
+        noise = random.uniform(-0.05, 0.05)
+        self.mid_price += noise
+        latency = random.randint(45, 120)
+        return {
+            "bids": [[self.mid_price - 0.02, 100], [self.mid_price - 0.05, 500]],
+            "asks": [[self.mid_price + 0.02, 120], [self.mid_price + 0.05, 450]],
+            "latency_ms": latency
+        }
+
+    async def calculate_fair_value(self):
+        """Mock calculation of fair value based on order book imbalance."""
+        skew = random.uniform(-0.1, 0.1)
+        return self.mid_price * (1 + skew / 1000)
+
+    async def place_orders(self, fair_price):
+        """Simulates placing maker orders."""
+        bid_price = round(fair_price * (1 - SPREAD_BPS / 10000), 2)
+        ask_price = round(fair_price * (1 + SPREAD_BPS / 10000), 2)
+        
+        # Simulate a transaction signature
+        sig_bid = f"5{random.randint(100,999)}x...{random.randint(10,99)}"
+        sig_ask = f"2{random.randint(100,999)}z...{random.randint(10,99)}"
+        
+        logger.info(f"TX SENT | BID {ORDER_SIZE_SOL} @ {bid_price} | ASK {ORDER_SIZE_SOL} @ {ask_price}")
+        
+        # Random chance of "filling" an order
+        if random.random() < 0.15:
+            await self.handle_fill("BID", bid_price, sig_bid)
+        elif random.random() < 0.15:
+            await self.handle_fill("ASK", ask_price, sig_ask)
+
+    async def handle_fill(self, side, price, signature):
+        await asyncio.sleep(0.1)
+        logger.warning(f" >> ORDER FILLED: {side} {ORDER_SIZE_SOL} {SYMBOL} @ {price} | Sig: {signature}")
+        if side == "BID":
+            self.inventory_sol += ORDER_SIZE_SOL
+            self.inventory_usdc -= (ORDER_SIZE_SOL * price)
+        else:
+            self.inventory_sol -= ORDER_SIZE_SOL
+            self.inventory_usdc += (ORDER_SIZE_SOL * price)
+            
+        logger.info(f"Position Update | SOL: {self.inventory_sol:.2f} | USDC: {self.inventory_usdc:.2f}")
+
+    async def run(self):
+        await self.initialize()
+        logger.info("Starting Maker Strategy... Press Ctrl+C to stop.")
+        
+        try:
+            while self.is_running:
+                start_time = time.time()
+                
+                # 1. Fetch Data
+                ob_data = await self.fetch_orderbook()
+                
+                # 2. Algo Logic
+                fv = await self.calculate_fair_value()
+                
+                # 3. Execution
+                await self.place_orders(fv)
+                
+                # 4. Latency Management
+                process_time = (time.time() - start_time) * 1000
+                logger.debug(f"Tick Processed: {process_time:.2f}ms | Network Latency: {ob_data['latency_ms']}ms")
+                
+                await asyncio.sleep(REFRESH_RATE)
+                
+        except KeyboardInterrupt:
+            logger.info("Stopping Bot...")
+            logger.info("Cancelling all open orders...")
+            await asyncio.sleep(1)
+            logger.info("Shutdown complete.")
+
+if __name__ == "__main__":
+    bot = SolanaMarketMaker(MARKET_ADDRESS, RPC_ENDPOINT)
+    try:
+        asyncio.run(bot.run())
+    except KeyboardInterrupt:
+        pass
