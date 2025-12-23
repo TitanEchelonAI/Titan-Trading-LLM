@@ -7,7 +7,7 @@
     <a href="https://discord.gg/BU3xFYuQVf"><img src="https://img.shields.io/discord/511303648119226382?color=%236d82cc&label=Discord&logo=discord&logoColor=white" /></a>&nbsp;
     <a href="https://github.com/TitanEchelonAI/Titan-Echelon-AI"><img src="https://img.shields.io/github/stars/TitanEchelonAI/Titan-Echelon-AI?style=social" alt="stars - Atlas" /></a>&nbsp;
     <a href=""><img src="https://img.shields.io/badge/built_with-Rust-dca282.svg?logo=rust" /></a>&nbsp;
-    <a href="https://x.com/@TitanTechSnow"><img src="https://img.shields.io/twitter/follow/TitanTechSnow"></a>
+    <a href="https://x.com/@TitanLLM"><img src="https://img.shields.io/twitter/follow/TitanLLM"></a>
 </p>
 
 ✨ If you would like to help spread the word about Titan, please consider starring the repo!
