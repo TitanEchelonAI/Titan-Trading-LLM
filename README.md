@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="img/titanlogo1.png.png" style="width: 300px; height: auto;" alt="Atlas logo">
+    <img src="img/atlaslogo.png" style="width: 300px; height: auto;" alt="Atlas logo">
 </p>
 
 <p align="center">
