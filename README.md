@@ -22,7 +22,7 @@ Atlas is the Rust library for building those LLMs—scalable, modular, and bruta
 
 We built it to trade. You can use it to build whatever you want.
 
-More information about this crate can be found in the [official](https://docs.rs/crate/titanai/) documentations.
+More information about this crate can be found in the [official]((https://docs.rs/atlaspathwaysai/1.1.2/atlas/)) documentations.
 
 This is what's inside. We built Atlas to be the foundation for any high-performance AI task.
 
