@@ -18,7 +18,7 @@ Sentient World Labs is the Rust library for building those LLMs—scalable, modu
 
 We built it to trade. You can use it to build whatever you want.
 
-More information about this crate can be found in the [official](https://docs.rs/atlaspathwaysai/1.1.2/atlas/) documentations.
+More information about this crate can be found in the [official](https://static1.squarespace.com/static/6780949f7b0cc0707be1a62f/t/695ddbf754f2074ace6a7e82/1767758839927/sentientworldsstudy.pdf) documentations.
 
 This is what's inside. We built Sentient World Labs to be the foundation for any high-performance AI task.
 
