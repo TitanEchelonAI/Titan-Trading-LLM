@@ -1,6 +1,5 @@
 
 <p align="center">
-    <a href="https://docs.rs/atlaspathwaysai/1.1.2/atlas/"><img src="https://img.shields.io/badge/📖 docs-Atlas.rs-dca282.svg" /></a>&nbsp;
     <a href="https://discord.gg/BU3xFYuQVf"><img src="https://img.shields.io/discord/511303648119226382?color=%236d82cc&label=Discord&logo=discord&logoColor=white" /></a>&nbsp;
     <a href="https://github.com/SentientWorldsLabs/SentientWorldsLabs"><img src="https://img.shields.io/github/stars/SentientWorldsLabs/SentientWorldsLabs?style=social" alt="stars - Sentient World Labs" /></a>&nbsp;
     <a href=""><img src="https://img.shields.io/badge/built_with-Rust-dca282.svg?logo=rust" /></a>&nbsp;
@@ -14,7 +13,7 @@
 We use this library to forge our three autonomous Sentient World Labs agents that hunt alpha on $SOL, $BNB, & $BASE. If you're here, If you're building, you're one of us.
 
 
-## [What is Sentient World Labs?](https://atlaspathways.github.io/docs/docs/1_why_atlaspathwaysai)
+## [What is Sentient World Labs?](https://static1.squarespace.com/static/6780949f7b0cc0707be1a62f/t/695ddbf754f2074ace6a7e82/1767758839927/sentientworldsstudy.pdf)
 Sentient World Labs is the Rust library for building those LLMs—scalable, modular, and brutally ergonomic applications. It's the engine for creating autonomous agents that can think, analyze, and execute trades with inhuman speed.
 
 We built it to trade. You can use it to build whatever you want.
